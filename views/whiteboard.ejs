@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=WH, initial-scale=1.0">
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+    </script>
+    <title>WhiteBoard</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <!-- <script src="/socket.io/socket.io.js" defer></script> -->
+
+    <script>
+        let canvas = document.getElementById("canvas");
+
+canvas.width =  window.innerWidth;
+canvas.height = window.innerHeight;
+
+var io = io.connect(`https://localhost:8000/room/whiteboard/${ROOM_ID}`);
+
+let ctx = canvas.getContext("2d");
+
+let x;
+let y;
+let mouseDown = false;
+
+window.onmousedown = (e) => {
+  ctx.moveTo(x, y);
+  console.log(x,y);
+  io.emit("down",{x,y});
+  console.log("Hello");
+  mouseDown = true;
+};
+
+window.onmouseup = (e) => {
+  mouseDown = false;
+};
+
+io.on("ondraw",({x,y})=>{
+    ctx.lineTo(x,y);
+    ctx.stroke();
+});
+io.on("ondown",({x,y})=>{
+    ctx.moveTo(x,y);
+})
+
+window.onmousemove = (e) => {
+  x = e.clientX;
+  y = e.clientY;
+
+  if (mouseDown) {
+    io.emit("draw",{x,y});
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+};
+    </script>
+  </body>
+</html>

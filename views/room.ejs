@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Meet</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+        const roomid = `http://localhost:8000/room/${ROOM_ID}`
+    </script>
+    <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="main-div">
+        <div id="video-grid"></div>
+        <div id="screen-share-grid"></div>
+        <div id="chat-box">
+            <div id="chat-header">
+                <div>In-call messages</div>
+                <div id="close-chat-div"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+            <div class="chatss">
+                <div id="chats">
+                    <div id="messages-info">Messages can only be seen by people in the call and are deleted when the
+                        call
+                        ends</div>
+                    <ul id="messages">
+                    </ul>
+                </div>
+            </div>
+            <div id="form">
+                <form>
+                    <input type="text" id="message-form" placeholder="Send a message to everyone" autocomplete="off">
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="meeting-info-block" id="meeting-info-block">
+            <div class="meeting-header">
+                <h3>Your meeting's ready</h3>
+                <div id="close-meet-div"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+            <button class="add-people-btn">
+                <span class="material-symbols-outlined icon">person_add</span>
+                &nbsp;Add others
+
+            </button>
+            <p class="info-text">
+                Or share this meeting link with others you <br> want in the meeting
+            </p>
+            <div class="meet-link">
+                <span id="url"></span>
+                <script>
+                    document.getElementById("url").innerHTML = ROOM_ID;
+                </script>
+                <span class="material-symbols-outlined icons" id="copy-btn"
+                    onClick={navigator.clipboard.writeText(roomid)}>content_copy</span>
+            </div>
+            <div class="permission-text">
+                <span class="material-symbols-outlined private">admin_panel_settings</span>
+                <p class="small-text">
+                    People who use this meeting link must get your permission before they can join.
+                </p>
+            </div>
+            <p class="small-text">Joined as tusharkoli270@gmail.com</p>
+        </div>
+    </div>
+    <div id="controls-tab">
+        <div class="Time">
+            <div id="time"></div>
+            <div id="Meet-Link"></div>
+            <script>
+                document.getElementById("Meet-Link").innerHTML = ROOM_ID;
+            </script>
+        </div>
+        <div class="icons">
+            <div class="btn" id="mute"><i class="fa fa-microphone"></i></div>
+            <div class="btn" id="video-off"><span class="material-symbols-outlined">videocam</span></div>
+            <div class="btn" id="captions"><span class="material-symbols-outlined">closed_caption</span></div>
+            <div class="btn" id="screen-share-btn"> <span class="material-symbols-outlined">present_to_all</span></div>
+            <a href="/room/end/<%= roomId %>">
+                <div class="end-btn"><span class="material-symbols-outlined">call_end</span></div>
+            </a>
+        </div>
+        <div class="icons">
+            <div class="btns" id="meet_info"><span class="material-symbols-outlined iconss">error</span></div>
+            <div class="btns"><span class="material-symbols-outlined iconss">group</span></div>
+            <div class="btns" id="chat-box-btn"><span class="material-symbols-outlined iconss">chat</span></div>
+            <a href="/room/whiteboard/<%= roomId %>" target="_blank">
+                <div class="btns"><span class="material-symbols-outlined iconss">category</span></div>
+            </a>
+            <div class="btns btnes"><span class="material-symbols-outlined iconss">lock_person</span></div>
+        </div>
+    </div>
+</body>
+
+</html>

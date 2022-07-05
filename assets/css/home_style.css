@@ -1,0 +1,208 @@
+#header {
+    margin-top: -18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 124px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.help-text {
+    font-size: 22px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    color: gray;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+}
+.icon-block {
+    font-size: 25px;
+    padding: 10px;
+    color: rgb(111, 103, 109);
+    font-weight: 800;
+}
+.icon-block:hover{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: whitesmoke;
+
+}
+.icon-clock {
+    font-size: 18px;
+    padding: 5px;
+    color: rgb(106, 105, 105);
+    font-weight: 500;
+}
+
+.icon-clock:hover{
+    cursor: pointer;
+}
+        
+.icon-alock {
+    font-size: 32px;
+    padding: 10px;
+    color: rgb(111, 103, 109);
+    font-weight: 700;
+}
+.icon-alock:hover{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: whitesmoke;
+}
+
+#root-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#left-div {
+    margin-top: -50px;
+    margin-left: 40px;
+    width: 50vw;
+}
+
+#large-message {
+    margin-top: 25vh;
+    font-size: 2.8rem;
+    font-family: sans-serif;
+    margin-left: 2rem;
+    font-weight: 400px;
+    color: #323232;
+}
+
+#small-message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin-left: 2rem;
+    color: gray;
+}
+
+
+#new-meeting-root {
+    display: flex;
+    justify-content: space-between;
+    width: 35vw;
+    height: 10vh;
+    margin-top: 3rem;
+    margin-left: 37px;
+}
+
+#start-meeting a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+#video_btn{
+    margin-left: 0px;
+    font-size: 20px;
+    color: white;
+    padding: 0px;
+}
+#enter-meeting-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey;
+    border-radius: .2rem;
+    font-size: 1.5rem;
+    color: gray;
+    height: 2rem;
+    padding: .5rem;
+    line-height: 2rem;
+}
+#keyboard_btn{
+    padding-left: 10px;
+}
+#enter-meeting-link input {
+    border: none;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+#join-button {
+    font-family: sans-serif;
+    color: #096ae7;
+    font-size: 1.2rem;
+    height: 3rem;
+    width: 4rem;
+    border-radius: .2rem;
+    line-height: 3rem;
+    text-align: center;
+}
+
+#join-button:hover {
+    cursor: pointer;
+    background-color: hsla(214, 93%, 47%, .1);
+}
+
+#enter-meeting-link input:focus {
+    outline: none;
+}
+
+#start-meeting {
+    padding-top: 1rem;
+    border-radius: 5px;
+    color: white;
+    background-color: #096ae7;
+    font-family: sans-serif;
+    height: 34px;
+    width: 150px;
+    cursor: pointer;
+}
+
+#start-meeting:hover {
+    background-color: #1b66ca;
+    transition: background-color .5s ease-in-out;
+}
+
+#help-text{
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+    font-weight: 500;
+    color: #5f6368;
+    max-width: 600px;
+}
+#help-text a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #4385f4;
+}
+
+#right-div {
+    width: 40vw;
+}
+
+#photo img {
+    height: 340px;
+    width: 340px;
+    margin-top: 12vh;
+    margin-left: 80px;
+}
+#text_{
+    margin-left: 120px;
+    justify-content: center;
+}
+#bigtext{
+    font-size: 25px;
+}
